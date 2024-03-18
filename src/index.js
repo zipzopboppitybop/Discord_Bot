@@ -4,6 +4,8 @@ dotenv.config({ path: '../.env' })
 import { Client, IntentsBitField, GatewayIntentBits, EmbedBuilder, Events } from 'discord.js';
 
 let newBoard = [];
+let player1 = 1;
+let player2 = 0;
 
 const createBoard = () => {
     for (let i = 0; i < 6; i++) {
@@ -26,7 +28,63 @@ const printBoard = () => {
 }
 
 const dropPiece = (column) => {
-    newBoard[0][column] = ':red_circle:';
+    if (player1) {
+        if (newBoard[5][column] === ':black_circle:') {
+            newBoard[5][column] = ':red_circle:';
+            player1 = 0;
+            player2 = 1;
+        } else if (newBoard[4][column] === ':black_circle:') {
+            newBoard[4][column] = ':red_circle:';
+            player1 = 0;
+            player2 = 1;
+        } else if (newBoard[3][column] === ':black_circle:') {
+            newBoard[3][column] = ':red_circle:';
+            player1 = 0;
+            player2 = 1;
+        } else if (newBoard[2][column] === ':black_circle:') {
+            newBoard[2][column] = ':red_circle:';
+            player1 = 0;
+            player2 = 1;
+        }
+        else if (newBoard[1][column] === ':black_circle:') {
+            newBoard[1][column] = ':red_circle:';
+            player1 = 0;
+            player2 = 1;
+        }
+        else if (newBoard[0][column] === ':black_circle:') {
+            newBoard[0][column] = ':red_circle:';
+            player1 = 0;
+            player2 = 1;
+        }
+    } else {
+        if (newBoard[5][column] === ':black_circle:') {
+            newBoard[5][column] = ':yellow_circle:';
+            player1 = 1;
+            player2 = 0;
+        } else if (newBoard[4][column] === ':black_circle:') {
+            newBoard[4][column] = ':yellow_circle:';
+            player1 = 1;
+            player2 = 0;
+        } else if (newBoard[3][column] === ':black_circle:') {
+            newBoard[3][column] = ':yellow_circle:';
+            player1 = 1;
+            player2 = 0;
+        } else if (newBoard[2][column] === ':black_circle:') {
+            newBoard[2][column] = ':yellow_circle:';
+            player1 = 1;
+            player2 = 0;
+        }
+        else if (newBoard[1][column] === ':black_circle:') {
+            newBoard[1][column] = ':yellow_circle:';
+            player1 = 1;
+            player2 = 0;
+        }
+        else if (newBoard[0][column] === ':black_circle:') {
+            newBoard[0][column] = ':yellow_circle:';
+            player1 = 1;
+            player2 = 0;
+        }
+    }
 }
 
 const client = new Client({
@@ -82,25 +140,36 @@ client.on('messageCreate', async (message) => {
                     dropPiece(0);
                     sentMessage.embeds[0].fields[0].value = printBoard();
                     sentMessage.edit({embeds: [sentMessage.embeds[0]]});
-                    console.log(sentMessage.embeds[0].fields[0].value);
                     break;
                 case '2️⃣':
-                    message.channel.send('2');
+                    dropPiece(1);
+                    sentMessage.embeds[0].fields[0].value = printBoard();
+                    sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '3️⃣':
-                    message.channel.send('3');
+                    dropPiece(2);
+                    sentMessage.embeds[0].fields[0].value = printBoard();
+                    sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '4️⃣':
-                    message.channel.send('4');
+                    dropPiece(3);
+                    sentMessage.embeds[0].fields[0].value = printBoard();
+                    sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '5️⃣':
-                    message.channel.send('5');
+                    dropPiece(4);
+                    sentMessage.embeds[0].fields[0].value = printBoard();
+                    sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '6️⃣':
-                    message.channel.send('6');
+                    dropPiece(5);
+                    sentMessage.embeds[0].fields[0].value = printBoard();
+                    sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '7️⃣':
-                    message.channel.send('7');
+                    dropPiece(6);
+                    sentMessage.embeds[0].fields[0].value = printBoard();
+                    sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
             }
         });
