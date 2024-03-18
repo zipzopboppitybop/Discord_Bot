@@ -4,16 +4,19 @@ dotenv.config({ path: '../.env' })
 import { Client, IntentsBitField, GatewayIntentBits, EmbedBuilder, Events } from 'discord.js';
 
 let newBoard = [];
-let player1 = 1;
+let player1 = 0;
 let player2 = 0;
 
 const createBoard = () => {
+    newBoard = [];
     for (let i = 0; i < 6; i++) {
         newBoard.push([]);
         for (let j = 0; j < 7; j++) {
             newBoard[i].push(':black_circle:');
         }
     }
+
+    player1 = 1;
 }
 
 const printBoard = () => {
@@ -118,7 +121,8 @@ client.on('messageCreate', async (message) => {
         const embed = new EmbedBuilder()
             .setTitle('Connect 4')
             .setDescription('Click on the numbers to drop your piece.')
-            .addFields({name: 'Board', value: board});
+            .addFields({name: 'Board', value: board})
+            .addFields({name: 'Turn', value: "Player 1's Turn"});
 
         let sentMessage = await message.channel.send({embeds: [embed]})
         sentMessage.react('1️⃣');
@@ -134,12 +138,18 @@ client.on('messageCreate', async (message) => {
         };
         const collector = sentMessage.createReactionCollector(filter, { time: 15000 });
         collector.on('collect', (reaction, user) => {
-            if (user.tag === "Game Bot#7061") return;
+            if (user.tag === "ZipZop#7061") return;
             switch (reaction.emoji.name) {
                 case '1️⃣':
                     dropPiece(0);
                     sentMessage.embeds[0].fields[0].value = printBoard();
+                    if (player1) {
+                        sentMessage.embeds[0].fields[1].value = "Player 1's Turn";
+                    } else if (player2) {
+                        sentMessage.embeds[0].fields[1].value = "Player 2's Turn";
+                    }
                     sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                    console.log(sentMessage.embeds[0].fields[1].value);
                     break;
                 case '2️⃣':
                     dropPiece(1);
