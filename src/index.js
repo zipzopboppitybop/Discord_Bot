@@ -58,16 +58,52 @@ client.on('messageCreate', async (message) => {
             .setDescription('Type !join to join the game')
             .addFields({name: 'Board', value: board});
 
-        message.channel.send({embeds: [embed]}).then((msg) => {
-            msg.react('1️⃣');
-            msg.react('2️⃣');
-            msg.react('3️⃣');
-            msg.react('4️⃣');
-            msg.react('5️⃣');
-            msg.react('6️⃣');
-            msg.react('7️⃣');
+        let sentMessage = await message.channel.send({embeds: [embed]})
+        sentMessage.react('1️⃣');
+        sentMessage.react('2️⃣');
+        sentMessage.react('3️⃣');
+        sentMessage.react('4️⃣');
+        sentMessage.react('5️⃣');
+        sentMessage.react('6️⃣');
+        sentMessage.react('7️⃣');
+
+        const filter = (reaction, user) => {
+            return reaction.emoji.name === '👍' && user.id === message.author.id;
+        };
+        const collector = sentMessage.createReactionCollector(filter, { time: 15000 });
+        collector.on('collect', (reaction, user) => {
+            if (user.tag === "Game Bot#7061") return;
+            switch (reaction.emoji.name) {
+                case '1️⃣':
+                    message.channel.send('1');
+                    break;
+                case '2️⃣':
+                    message.channel.send('2');
+                    break;
+                case '3️⃣':
+                    message.channel.send('3');
+                    break;
+                case '4️⃣':
+                    message.channel.send('4');
+                    break;
+                case '5️⃣':
+                    message.channel.send('5');
+                    break;
+                case '6️⃣':
+                    message.channel.send('6');
+                    break;
+                case '7️⃣':
+                    message.channel.send('7');
+                    break;
+            }
+        });
+    
+        collector.on('end', collected => {
+            message.channel.send(`Collected ${collected.size} items`);
+            console.log(`Collected ${collected.size} items`);
         });
     }
 });
+
 
 
