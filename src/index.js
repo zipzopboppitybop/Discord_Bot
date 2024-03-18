@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config({ path: '../.env' })
 
-import { Client, IntentsBitField, GatewayIntentBits, EmbedBuilder } from 'discord.js';
+import { Client, IntentsBitField, GatewayIntentBits, EmbedBuilder, Events } from 'discord.js';
 
 let newBoard = [];
 
@@ -58,6 +58,16 @@ client.on('messageCreate', async (message) => {
             .setDescription('Type !join to join the game')
             .addFields({name: 'Board', value: board});
 
-        message.channel.send({embeds: [embed]});
+        message.channel.send({embeds: [embed]}).then((msg) => {
+            msg.react('1️⃣');
+            msg.react('2️⃣');
+            msg.react('3️⃣');
+            msg.react('4️⃣');
+            msg.react('5️⃣');
+            msg.react('6️⃣');
+            msg.react('7️⃣');
+        });
     }
 });
+
+
