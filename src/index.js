@@ -145,40 +145,69 @@ client.on('messageCreate', async (message) => {
                     sentMessage.embeds[0].fields[0].value = printBoard();
                     if (player1) {
                         sentMessage.embeds[0].fields[1].value = "Player 1's Turn";
-                    } else if (player2) {
+                    } else {
                         sentMessage.embeds[0].fields[1].value = "Player 2's Turn";
                     }
                     sentMessage.edit({embeds: [sentMessage.embeds[0]]});
-                    console.log(sentMessage.embeds[0].fields[1].value);
                     break;
                 case '2️⃣':
                     dropPiece(1);
                     sentMessage.embeds[0].fields[0].value = printBoard();
+                    if (player1) {
+                        sentMessage.embeds[0].fields[1].value = "Player 1's Turn";
+                    } else {
+                        sentMessage.embeds[0].fields[1].value = "Player 2's Turn";
+                    }
                     sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '3️⃣':
                     dropPiece(2);
                     sentMessage.embeds[0].fields[0].value = printBoard();
+                    if (player1) {
+                        sentMessage.embeds[0].fields[1].value = "Player 1's Turn";
+                    } else {
+                        sentMessage.embeds[0].fields[1].value = "Player 2's Turn";
+                    }
                     sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '4️⃣':
                     dropPiece(3);
                     sentMessage.embeds[0].fields[0].value = printBoard();
+                    if (player1) {
+                        sentMessage.embeds[0].fields[1].value = "Player 1's Turn";
+                    } else {
+                        sentMessage.embeds[0].fields[1].value = "Player 2's Turn";
+                    }
                     sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '5️⃣':
                     dropPiece(4);
                     sentMessage.embeds[0].fields[0].value = printBoard();
+                    if (player1) {
+                        sentMessage.embeds[0].fields[1].value = "Player 1's Turn";
+                    } else {
+                        sentMessage.embeds[0].fields[1].value = "Player 2's Turn";
+                    }
                     sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '6️⃣':
                     dropPiece(5);
                     sentMessage.embeds[0].fields[0].value = printBoard();
+                    if (player1) {
+                        sentMessage.embeds[0].fields[1].value = "Player 1's Turn";
+                    } else {
+                        sentMessage.embeds[0].fields[1].value = "Player 2's Turn";
+                    }
                     sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '7️⃣':
                     dropPiece(6);
                     sentMessage.embeds[0].fields[0].value = printBoard();
+                    if (player1) {
+                        sentMessage.embeds[0].fields[1].value = "Player 1's Turn";
+                    } else {
+                        sentMessage.embeds[0].fields[1].value = "Player 2's Turn";
+                    }
                     sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
             }
