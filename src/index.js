@@ -25,6 +25,10 @@ const printBoard = () => {
     return board;
 }
 
+const dropPiece = (column) => {
+    newBoard[0][column] = ':red_circle:';
+}
+
 const client = new Client({
     intents: [
         IntentsBitField.Flags.Guilds,
@@ -55,7 +59,7 @@ client.on('messageCreate', async (message) => {
         let board = printBoard();
         const embed = new EmbedBuilder()
             .setTitle('Connect 4')
-            .setDescription('Type !join to join the game')
+            .setDescription('Click on the numbers to drop your piece.')
             .addFields({name: 'Board', value: board});
 
         let sentMessage = await message.channel.send({embeds: [embed]})
@@ -75,7 +79,10 @@ client.on('messageCreate', async (message) => {
             if (user.tag === "Game Bot#7061") return;
             switch (reaction.emoji.name) {
                 case '1️⃣':
-                    message.channel.send('1');
+                    dropPiece(0);
+                    sentMessage.embeds[0].fields[0].value = printBoard();
+                    sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                    console.log(sentMessage.embeds[0].fields[0].value);
                     break;
                 case '2️⃣':
                     message.channel.send('2');
@@ -96,11 +103,6 @@ client.on('messageCreate', async (message) => {
                     message.channel.send('7');
                     break;
             }
-        });
-    
-        collector.on('end', collected => {
-            message.channel.send(`Collected ${collected.size} items`);
-            console.log(`Collected ${collected.size} items`);
         });
     }
 });
