@@ -5,6 +5,7 @@ import { Client, IntentsBitField, GatewayIntentBits, EmbedBuilder, Events } from
 
 let newBoard = [];
 let player1 = 0;
+let player2 = 0;
 
 const createBoard = () => {
     newBoard = [];
@@ -34,45 +35,57 @@ const dropPiece = (column) => {
         if (newBoard[5][column] === ':black_circle:') {
             newBoard[5][column] = ':red_circle:';
             player1 = 0;
+            player2 = 1;
         } else if (newBoard[4][column] === ':black_circle:') {
             newBoard[4][column] = ':red_circle:';
             player1 = 0;
+            player2 = 1;
         } else if (newBoard[3][column] === ':black_circle:') {
             newBoard[3][column] = ':red_circle:';
             player1 = 0;
+            player2 = 1;
         } else if (newBoard[2][column] === ':black_circle:') {
             newBoard[2][column] = ':red_circle:';
             player1 = 0;
+            player2 = 1;
         }
         else if (newBoard[1][column] === ':black_circle:') {
             newBoard[1][column] = ':red_circle:';
             player1 = 0;
+            player2 = 1;
         }
         else if (newBoard[0][column] === ':black_circle:') {
             newBoard[0][column] = ':red_circle:';
             player1 = 0;
+            player2 = 1;
         }
     } else {
         if (newBoard[5][column] === ':black_circle:') {
             newBoard[5][column] = ':yellow_circle:';
             player1 = 1;
+            player2 = 0;
         } else if (newBoard[4][column] === ':black_circle:') {
             newBoard[4][column] = ':yellow_circle:';
             player1 = 1;
+            player2 = 0;
         } else if (newBoard[3][column] === ':black_circle:') {
             newBoard[3][column] = ':yellow_circle:';
             player1 = 1;
+            player2 = 0;
         } else if (newBoard[2][column] === ':black_circle:') {
             newBoard[2][column] = ':yellow_circle:';
             player1 = 1;
+            player2 = 0;
         }
         else if (newBoard[1][column] === ':black_circle:') {
             newBoard[1][column] = ':yellow_circle:';
             player1 = 1;
+            player2 = 0;
         }
         else if (newBoard[0][column] === ':black_circle:') {
             newBoard[0][column] = ':yellow_circle:';
             player1 = 1;
+            player2 = 0;
         }
     }
 }
@@ -109,7 +122,7 @@ client.on('messageCreate', async (message) => {
             .setTitle('Connect 4')
             .setDescription('Click on the numbers to drop your piece.')
             .addFields({name: 'Board', value: board})
-            .addFields({name: 'Turn', value: "Player 1's Turn"});
+            .addFields({name: 'Turn', value: "Red's Turn"});
 
         let sentMessage = await message.channel.send({embeds: [embed]})
         sentMessage.react('1️⃣');
