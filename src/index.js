@@ -31,6 +31,7 @@ const printBoard = () => {
 }
 
 const lol = new ConnectFour();
+lol.createBoard();
 console.log(lol.board);
 
 const dropPiece = (column) => {
