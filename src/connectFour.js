@@ -25,49 +25,49 @@ export default class ConnectFour {
     }
 
     dropPiece = (column) => {
-        if (player1) {
-            if (newBoard[5][column] === ':black_circle:') {
-                newBoard[5][column] = ':red_circle:';
-                player1 = 0;
-            } else if (newBoard[4][column] === ':black_circle:') {
-                newBoard[4][column] = ':red_circle:';
-                player1 = 0;
-            } else if (newBoard[3][column] === ':black_circle:') {
-                newBoard[3][column] = ':red_circle:';
-                player1 = 0;
-            } else if (newBoard[2][column] === ':black_circle:') {
-                newBoard[2][column] = ':red_circle:';
-                player1 = 0;
+        if (this.player1) {
+            if (this.board[5][column] === ':black_circle:') {
+                this.board[5][column] = ':red_circle:';
+                this.player1 = 0;
+            } else if (this.board[4][column] === ':black_circle:') {
+                this.board[4][column] = ':red_circle:';
+                this.player1 = 0;
+            } else if (this.board[3][column] === ':black_circle:') {
+                this.board[3][column] = ':red_circle:';
+                this.player1 = 0;
+            } else if (this.board[2][column] === ':black_circle:') {
+                this.board[2][column] = ':red_circle:';
+                this.player1 = 0;
             }
-            else if (newBoard[1][column] === ':black_circle:') {
-                newBoard[1][column] = ':red_circle:';
-                player1 = 0;
+            else if (this.board[1][column] === ':black_circle:') {
+                this.board[1][column] = ':red_circle:';
+                this.player1 = 0;
             }
-            else if (newBoard[0][column] === ':black_circle:') {
-                newBoard[0][column] = ':red_circle:';
-                player1 = 0;
+            else if (this.board[0][column] === ':black_circle:') {
+                this.board[0][column] = ':red_circle:';
+                this.player1 = 0;
             }
         } else {
-            if (newBoard[5][column] === ':black_circle:') {
-                newBoard[5][column] = ':yellow_circle:';
-                player1 = 1;
-            } else if (newBoard[4][column] === ':black_circle:') {
-                newBoard[4][column] = ':yellow_circle:';
-                player1 = 1;
-            } else if (newBoard[3][column] === ':black_circle:') {
-                newBoard[3][column] = ':yellow_circle:';
-                player1 = 1;
-            } else if (newBoard[2][column] === ':black_circle:') {
-                newBoard[2][column] = ':yellow_circle:';
-                player1 = 1;
+            if (this.board[5][column] === ':black_circle:') {
+                this.board[5][column] = ':yellow_circle:';
+                this.player1 = 1;
+            } else if (this.board[4][column] === ':black_circle:') {
+                this.board[4][column] = ':yellow_circle:';
+                this.player1 = 1;
+            } else if (this.board[3][column] === ':black_circle:') {
+                this.board[3][column] = ':yellow_circle:';
+                this.player1 = 1;
+            } else if (this.board[2][column] === ':black_circle:') {
+                this.board[2][column] = ':yellow_circle:';
+                this.player1 = 1;
             }
-            else if (newBoard[1][column] === ':black_circle:') {
-                newBoard[1][column] = ':yellow_circle:';
-                player1 = 1;
+            else if (this.board[1][column] === ':black_circle:') {
+                this.board[1][column] = ':yellow_circle:';
+                this.player1 = 1;
             }
-            else if (newBoard[0][column] === ':black_circle:') {
-                newBoard[0][column] = ':yellow_circle:';
-                player1 = 1;
+            else if (this.board[0][column] === ':black_circle:') {
+                this.board[0][column] = ':yellow_circle:';
+                this.player1 = 1;
             }
         }
     }

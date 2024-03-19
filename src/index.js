@@ -81,6 +81,10 @@ const dropPiece = (column) => {
 const lol = new ConnectFour();
 lol.createBoard();
 lol.printBoard();
+lol.dropPiece(0);
+lol.dropPiece(1);
+lol.dropPiece(1);
+lol.printBoard();
 console.log(lol.printedBoard);
 
 const client = new Client({
@@ -127,88 +131,88 @@ client.on('messageCreate', async (message) => {
         sentMessage.react('6️⃣');
         sentMessage.react('7️⃣');
 
-        // const filter = (reaction, user) => {
-        //     return reaction.emoji.name === '👍' && user.id === message.author.id;
-        // };
-        // const collector = sentMessage.createReactionCollector(filter, { time: 15000 });
-        // client.on('messageReactionRemove', async (reaction, user) => {
-        //     if (user.tag === "ZipZop#7061") return;
-        //     switch (reaction.emoji.name) {
-        //         case '1️⃣':
-        //             dropPiece(0);
-        //              sentMessage.embeds[0].fields[0].value = printBoard();
-        //             if (player1) {
-        //                 sentMessage.embeds[0].fields[1].value = "Red's Turn";
-        //             } else {
-        //                 sentMessage.embeds[0].fields[1].value = "Yellow's Turn";
-        //             }
-        //             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
-        //             break;
-        //         case '2️⃣':
-        //             dropPiece(1);
-        //             sentMessage.embeds[0].fields[0].value = printBoard();
-        //             if (player1) {
-        //                 sentMessage.embeds[0].fields[1].value = "Red's Turn";
-        //             } else {
-        //                 sentMessage.embeds[0].fields[1].value = "Yellow's Turn";
-        //             }
-        //             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
-        //             break;
-        //         case '3️⃣':
-        //             dropPiece(2);
-        //             sentMessage.embeds[0].fields[0].value = printBoard();
-        //             if (player1) {
-        //                 sentMessage.embeds[0].fields[1].value = "Red's Turn";
-        //             } else {
-        //                 sentMessage.embeds[0].fields[1].value = "Yellow's Turn";
-        //             }
-        //             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
-        //             break;
-        //         case '4️⃣':
-        //             dropPiece(3);
-        //             sentMessage.embeds[0].fields[0].value = printBoard();
-        //             if (player1) {
-        //                 sentMessage.embeds[0].fields[1].value = "Red's Turn";
-        //             } else {
-        //                 sentMessage.embeds[0].fields[1].value = "Yellow's Turn";
-        //             }
-        //             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
-        //             break;
-        //         case '5️⃣':
-        //             dropPiece(4);
-        //             sentMessage.embeds[0].fields[0].value = printBoard();
-        //             if (player1) {
-        //                 sentMessage.embeds[0].fields[1].value = "Red's Turn";
-        //             }
-        //             else {
-        //                 sentMessage.embeds[0].fields[1].value = "Yellow's Turn";
-        //             }
-        //             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
-        //             break;
-        //         case '6️⃣':
-        //             dropPiece(5);
-        //             sentMessage.embeds[0].fields[0].value = printBoard();
-        //             if (player1) {
-        //                 sentMessage.embeds[0].fields[1].value = "Red's Turn";
-        //             }
-        //             else {
-        //                 sentMessage.embeds[0].fields[1].value = "Yellow's Turn";
-        //             }
-        //             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
-        //             break;
-        //         case '7️⃣':
-        //             dropPiece(6);
-        //             sentMessage.embeds[0].fields[0].value = printBoard();
-        //             if (player1) {
-        //                 sentMessage.embeds[0].fields[1].value = "Red's Turn";
-        //             }
-        //             else {
-        //                 sentMessage.embeds[0].fields[1].value = "Yellow's Turn";
-        //             }
-        //             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
-        //             break;
-        //     }
-        // });
+        const filter = (reaction, user) => {
+            return reaction.emoji.name === '👍' && user.id === message.author.id;
+        };
+        const collector = sentMessage.createReactionCollector(filter, { time: 15000 });
+        client.on('messageReactionRemove', async (reaction, user) => {
+            if (user.tag === "ZipZop#7061") return;
+            switch (reaction.emoji.name) {
+                case '1️⃣':
+                    dropPiece(0);
+                     sentMessage.embeds[0].fields[0].value = printBoard();
+                    if (player1) {
+                        sentMessage.embeds[0].fields[1].value = "Red's Turn";
+                    } else {
+                        sentMessage.embeds[0].fields[1].value = "Yellow's Turn";
+                    }
+                    await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                    break;
+                // case '2️⃣':
+                //     dropPiece(1);
+                //     sentMessage.embeds[0].fields[0].value = printBoard();
+                //     if (player1) {
+                //         sentMessage.embeds[0].fields[1].value = "Red's Turn";
+                //     } else {
+                //         sentMessage.embeds[0].fields[1].value = "Yellow's Turn";
+                //     }
+                //     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                //     break;
+                // case '3️⃣':
+                //     dropPiece(2);
+                //     sentMessage.embeds[0].fields[0].value = printBoard();
+                //     if (player1) {
+                //         sentMessage.embeds[0].fields[1].value = "Red's Turn";
+                //     } else {
+                //         sentMessage.embeds[0].fields[1].value = "Yellow's Turn";
+                //     }
+                //     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                //     break;
+                // case '4️⃣':
+                //     dropPiece(3);
+                //     sentMessage.embeds[0].fields[0].value = printBoard();
+                //     if (player1) {
+                //         sentMessage.embeds[0].fields[1].value = "Red's Turn";
+                //     } else {
+                //         sentMessage.embeds[0].fields[1].value = "Yellow's Turn";
+                //     }
+                //     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                //     break;
+                // case '5️⃣':
+                //     dropPiece(4);
+                //     sentMessage.embeds[0].fields[0].value = printBoard();
+                //     if (player1) {
+                //         sentMessage.embeds[0].fields[1].value = "Red's Turn";
+                //     }
+                //     else {
+                //         sentMessage.embeds[0].fields[1].value = "Yellow's Turn";
+                //     }
+                //     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                //     break;
+                // case '6️⃣':
+                //     dropPiece(5);
+                //     sentMessage.embeds[0].fields[0].value = printBoard();
+                //     if (player1) {
+                //         sentMessage.embeds[0].fields[1].value = "Red's Turn";
+                //     }
+                //     else {
+                //         sentMessage.embeds[0].fields[1].value = "Yellow's Turn";
+                //     }
+                //     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                //     break;
+                // case '7️⃣':
+                //     dropPiece(6);
+                //     sentMessage.embeds[0].fields[0].value = printBoard();
+                //     if (player1) {
+                //         sentMessage.embeds[0].fields[1].value = "Red's Turn";
+                //     }
+                //     else {
+                //         sentMessage.embeds[0].fields[1].value = "Yellow's Turn";
+                //     }
+                //     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                //     break;
+            }
+        });
         // collector.on('collect', async (reaction, user) => {
         //     if (user.tag === "ZipZop#7061") return;
         //     switch (reaction.emoji.name) {
