@@ -23,4 +23,52 @@ export default class ConnectFour {
         }
         return this.printedBoard;
     }
+
+    dropPiece = (column) => {
+        if (player1) {
+            if (newBoard[5][column] === ':black_circle:') {
+                newBoard[5][column] = ':red_circle:';
+                player1 = 0;
+            } else if (newBoard[4][column] === ':black_circle:') {
+                newBoard[4][column] = ':red_circle:';
+                player1 = 0;
+            } else if (newBoard[3][column] === ':black_circle:') {
+                newBoard[3][column] = ':red_circle:';
+                player1 = 0;
+            } else if (newBoard[2][column] === ':black_circle:') {
+                newBoard[2][column] = ':red_circle:';
+                player1 = 0;
+            }
+            else if (newBoard[1][column] === ':black_circle:') {
+                newBoard[1][column] = ':red_circle:';
+                player1 = 0;
+            }
+            else if (newBoard[0][column] === ':black_circle:') {
+                newBoard[0][column] = ':red_circle:';
+                player1 = 0;
+            }
+        } else {
+            if (newBoard[5][column] === ':black_circle:') {
+                newBoard[5][column] = ':yellow_circle:';
+                player1 = 1;
+            } else if (newBoard[4][column] === ':black_circle:') {
+                newBoard[4][column] = ':yellow_circle:';
+                player1 = 1;
+            } else if (newBoard[3][column] === ':black_circle:') {
+                newBoard[3][column] = ':yellow_circle:';
+                player1 = 1;
+            } else if (newBoard[2][column] === ':black_circle:') {
+                newBoard[2][column] = ':yellow_circle:';
+                player1 = 1;
+            }
+            else if (newBoard[1][column] === ':black_circle:') {
+                newBoard[1][column] = ':yellow_circle:';
+                player1 = 1;
+            }
+            else if (newBoard[0][column] === ':black_circle:') {
+                newBoard[0][column] = ':yellow_circle:';
+                player1 = 1;
+            }
+        }
+    }
 }
