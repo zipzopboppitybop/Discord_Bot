@@ -189,6 +189,60 @@ client.on('messageCreate', async (message) => {
                     break;
             }
         });
+        client.on('messageReactionRemove', async (reaction, user) => {
+            if (user.tag === "ZipZop#7061") return;
+            switch (reaction.emoji.name) {
+                case '1️⃣':
+                    board.dropPiece(0);
+                    board.printBoard();
+                    sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                    sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                    await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                    break;
+                case '2️⃣':
+                    board.dropPiece(1);
+                    board.printBoard();
+                    sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                    sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                    await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                    break;
+                case '3️⃣':
+                    board.dropPiece(2);
+                    board.printBoard();
+                    sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                    sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                    await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                    break;
+                case '4️⃣':
+                    board.dropPiece(3);
+                    board.printBoard();
+                    sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                    sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                    await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                    break;
+                case '5️⃣':
+                    board.dropPiece(4);
+                    board.printBoard();
+                    sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                    sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                    await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                    break;
+                case '6️⃣':
+                    board.dropPiece(5);
+                    board.printBoard();
+                    sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                    sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                    await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                    break;
+                case '7️⃣':
+                    board.dropPiece(6);
+                    board.printBoard();
+                    sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                    sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                    await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                    break;
+            }
+        });
     }
 });
 
