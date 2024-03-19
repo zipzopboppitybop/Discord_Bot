@@ -85,5 +85,7 @@ export default class ConnectFour {
                 this.playersTurn = "Red's Turn";
             }
         }
+
+        this.printBoard();
     }
 }
