@@ -30,10 +30,6 @@ const printBoard = () => {
     return board;
 }
 
-const lol = new ConnectFour();
-lol.createBoard();
-console.log(lol.board);
-
 const dropPiece = (column) => {
     if (player1) {
         if (newBoard[5][column] === ':black_circle:') {
@@ -81,6 +77,11 @@ const dropPiece = (column) => {
         }
     }
 }
+
+const lol = new ConnectFour();
+lol.createBoard();
+lol.printBoard();
+console.log(lol.printedBoard);
 
 const client = new Client({
     intents: [
