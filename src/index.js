@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config({ path: '../.env' })
+import ConnectFour from './connectFour.js';
 
 import { Client, IntentsBitField, GatewayIntentBits, EmbedBuilder, Events } from 'discord.js';
 
@@ -28,6 +29,9 @@ const printBoard = () => {
     }
     return board;
 }
+
+const lol = new ConnectFour();
+console.log(lol.board);
 
 const dropPiece = (column) => {
     if (player1) {
