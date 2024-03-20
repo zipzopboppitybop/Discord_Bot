@@ -19,6 +19,12 @@ const client = new Client({
 client.login(process.env.DISCORD_TOKEN);
 
 client.on('ready', (c) => {
+    client.application.commands.set([
+        {
+            name: 'playc4',
+            description: 'Play Connect Four',
+        },
+    ]);
     console.log(`Logged in as ${c.user.tag}!`);
 });
 
