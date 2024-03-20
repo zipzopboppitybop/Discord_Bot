@@ -38,3 +38,14 @@ nodemon
 
 ## Play Music
 -- Am Adding music play function soon
+
+
+<h1 style="text-align:center">Contributing</h1>
+<hr>
+
+- If you don't want to add to the bot you can just use the invite link at the top and it should work fine
+- You are free to clone this repository and do what you want with it if you wish
+- Or if you want to contribute to this bot you can [Fork](https://github.com/zipzopboppitybop/Discord_Bot/fork) this repository, create a feature branch, and make a pull request.
+
+
+<h1 style="text-align:center">Thank you so much for checking my bot out and or contributing!</h1>
