@@ -1,5 +1,5 @@
 export default class ConnectFour {
-    constructor(board = [], player1 = 1, printedBoard = '', playersTurn = "Red's Turn") {
+    constructor(board = [], player1 = true, printedBoard = '', playersTurn = "Red's Turn") {
         this.board = board;
         this.player1 = player1;
         this.printedBoard = printedBoard;
@@ -32,7 +32,7 @@ export default class ConnectFour {
         if (this.player1) {
 
             this.playersTurn = "Yellow's Turn";
-            this.player1 = 0;
+            this.player1 = false;
 
             if (this.board[5][column] === ':black_circle:') {
                 this.board[5][column] = ':red_circle:';
@@ -50,7 +50,7 @@ export default class ConnectFour {
         } else {
 
             this.playersTurn = "Red's Turn";
-            this.player1 = 1;
+            this.player1 = true;
 
             if (this.board[5][column] === ':black_circle:') {
                 this.board[5][column] = ':yellow_circle:';
