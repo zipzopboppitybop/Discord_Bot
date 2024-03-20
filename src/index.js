@@ -25,6 +25,7 @@ client.on('ready', (c) => {
 client.on('interactionCreate', async (interaction) => {
     if (!interaction.isChatInputCommand()) return;
 
+    // Connect Four Command and logic
     if (interaction.commandName === 'playc4') {
         const board = new ConnectFour();
         board.createBoard();
@@ -324,19 +325,3 @@ client.on('interactionCreate', async (interaction) => {
         });
     }
 });
-
-client.on('messageCreate', async (message) => {
-    if (message.author.bot) return;
-
-    if (message.content === 'ping') {
-       
-    }
-
-    // Connect 4 game logic
-    if (message.content === '!play c4') {  
-
-    }
-});
-
-
-
