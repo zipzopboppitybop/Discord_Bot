@@ -5,7 +5,7 @@
 
 <div style="font-size:1.5rem">
 
-Try it out!: [Invite Link](https://www.example.com)
+Try it out!: [Invite Link](https://discord.com/oauth2/authorize?client_id=1218657571779510303&scope=bot)
 </div>
 
 ## Prerequisites for customizing bot
