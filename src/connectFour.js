@@ -1,9 +1,10 @@
 export default class ConnectFour {
-    constructor(board = [], player1 = true, printedBoard = '', playersTurn = "Red's Turn") {
+    constructor(board = [], player1 = true, printedBoard = '', playersTurn = "Red's Turn", gameOver = false) {
         this.board = board;
         this.player1 = player1;
         this.printedBoard = printedBoard;
         this.playersTurn = playersTurn;
+        this.gameOver = gameOver;
     }
 
     createBoard = () => {
@@ -66,7 +67,47 @@ export default class ConnectFour {
                 this.board[0][column] = ':yellow_circle:';
             }
         }
-
+        this.checkWin();
         this.printBoard();
+    }
+
+    checkWin = () => {
+        for (let i = 0; i < 6; i++) {
+            for (let j = 0; j < 7; j++) {
+                if (this.board[i][j] !== ':black_circle:') {
+                    if (j + 3 < 7 &&
+                        this.board[i][j] === this.board[i][j + 1] &&
+                        this.board[i][j] === this.board[i][j + 2] &&
+                        this.board[i][j] === this.board[i][j + 3]) {
+                        this.gameOver = true;
+                        return true;
+                    }
+                    if (i + 3 < 6) {
+                        if (this.board[i][j] === this.board[i + 1][j] &&
+                            this.board[i][j] === this.board[i + 2][j] &&
+                            this.board[i][j] === this.board[i + 3][j]) {
+                            this.gameOver = true;
+                            return true;
+                        }
+                        if (j + 3 < 7 &&
+                            this.board[i][j] === this.board[i + 1][j + 1] &&
+                            this.board[i][j] === this.board[i + 2][j + 2] &&
+                            this.board[i][j] === this.board[i + 3][j + 3]) {
+                            this.gameOver = true;
+                            return true;
+                        }
+                        if (j - 3 >= 0 &&
+                            this.board[i][j] === this.board[i + 1][j - 1] &&
+                            this.board[i][j] === this.board[i + 2][j - 2] &&
+                            this.board[i][j] === this.board[i + 3][j - 3]) {
+                            this.gameOver = true;
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 }
