@@ -73,7 +73,8 @@ client.on('messageCreate', async (message) => {
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
                     if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
                     if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
-                    if (!board.gameOver) board.dropPiece(0);
+                    if (board.gameOver) return;
+                    else board.dropPiece(0);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
                         sentMessage.embeds[0].fields[1].value = board.playersTurn;
@@ -90,11 +91,12 @@ client.on('messageCreate', async (message) => {
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
                     if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
                     if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
-                    if (!board.gameOver) board.dropPiece(1);
+                    if (board.gameOver) return;
+                    else board.dropPiece(1);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
                         sentMessage.embeds[0].fields[1].value = board.playersTurn;
-                        sentMessage.embeds[0].fields[2].value = 'Game Over';
+                        sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
@@ -107,11 +109,12 @@ client.on('messageCreate', async (message) => {
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
                     if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
                     if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
-                    if (!board.gameOver) board.dropPiece(2);
+                    if (board.gameOver) return;
+                    else board.dropPiece(2);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
                         sentMessage.embeds[0].fields[1].value = board.playersTurn;
-                        sentMessage.embeds[0].fields[2].value = 'Game Over';
+                        sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
@@ -124,11 +127,12 @@ client.on('messageCreate', async (message) => {
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
                     if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
                     if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
-                    if (!board.gameOver) board.dropPiece(3);
+                    if (board.gameOver) return;
+                    else board.dropPiece(3);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
                         sentMessage.embeds[0].fields[1].value = board.playersTurn;
-                        sentMessage.embeds[0].fields[2].value = 'Game Over';
+                        sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
@@ -141,11 +145,12 @@ client.on('messageCreate', async (message) => {
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
                     if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
                     if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
-                    if (!board.gameOver) board.dropPiece(4);
+                    if (board.gameOver) return;
+                    else board.dropPiece(4);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
                         sentMessage.embeds[0].fields[1].value = board.playersTurn;
-                        sentMessage.embeds[0].fields[2].value = 'Game Over';
+                        sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
@@ -158,11 +163,12 @@ client.on('messageCreate', async (message) => {
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
                     if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
                     if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
-                    if (!board.gameOver) board.dropPiece(5);
+                    if (board.gameOver) return;
+                    else board.dropPiece(5);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
                         sentMessage.embeds[0].fields[1].value = board.playersTurn;
-                        sentMessage.embeds[0].fields[2].value = 'Game Over';
+                        sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
@@ -175,11 +181,12 @@ client.on('messageCreate', async (message) => {
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
                     if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
                     if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
-                    if (!board.gameOver) board.dropPiece(6);
+                    if (board.gameOver) return;
+                    else board.dropPiece(6);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
                         sentMessage.embeds[0].fields[1].value = board.playersTurn;
-                        sentMessage.embeds[0].fields[2].value = 'Game Over';
+                        sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
@@ -197,11 +204,12 @@ client.on('messageCreate', async (message) => {
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
                     if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
                     if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
-                    if (!board.gameOver) board.dropPiece(0);
+                    if (board.gameOver) return;
+                    else board.dropPiece(0);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
                         sentMessage.embeds[0].fields[1].value = board.playersTurn;
-                        sentMessage.embeds[0].fields[2].value = 'Game Over';
+                        sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
@@ -214,11 +222,12 @@ client.on('messageCreate', async (message) => {
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
                     if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
                     if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
-                    if (!board.gameOver) board.dropPiece(1);
+                    if (board.gameOver) return;
+                    else board.dropPiece(1);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
                         sentMessage.embeds[0].fields[1].value = board.playersTurn;
-                        sentMessage.embeds[0].fields[2].value = 'Game Over';
+                        sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
@@ -231,11 +240,12 @@ client.on('messageCreate', async (message) => {
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
                     if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
                     if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
-                    if (!board.gameOver) board.dropPiece(2);
+                    if (board.gameOver) return;
+                    else board.dropPiece(2);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
                         sentMessage.embeds[0].fields[1].value = board.playersTurn;
-                        sentMessage.embeds[0].fields[2].value = 'Game Over';
+                        sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
@@ -248,11 +258,12 @@ client.on('messageCreate', async (message) => {
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
                     if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
                     if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
-                    if (!board.gameOver) board.dropPiece(3);
+                    if (board.gameOver) return;
+                    else board.dropPiece(3);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
                         sentMessage.embeds[0].fields[1].value = board.playersTurn;
-                        sentMessage.embeds[0].fields[2].value = 'Game Over';
+                        sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
@@ -265,11 +276,12 @@ client.on('messageCreate', async (message) => {
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
                     if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
                     if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
-                    if (!board.gameOver) board.dropPiece(4);
+                    if (board.gameOver) return;
+                    else board.dropPiece(4);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
                         sentMessage.embeds[0].fields[1].value = board.playersTurn;
-                        sentMessage.embeds[0].fields[2].value = 'Game Over';
+                        sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
@@ -282,11 +294,12 @@ client.on('messageCreate', async (message) => {
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
                     if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
                     if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
-                    if (!board.gameOver) board.dropPiece(5);
+                    if (board.gameOver) return;
+                    else board.dropPiece(5);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
                         sentMessage.embeds[0].fields[1].value = board.playersTurn;
-                        sentMessage.embeds[0].fields[2].value = 'Game Over';
+                        sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
@@ -299,11 +312,12 @@ client.on('messageCreate', async (message) => {
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
                     if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
                     if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
-                    if (!board.gameOver) board.dropPiece(6);
+                    if (board.gameOver) return;
+                    else board.dropPiece(6);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
                         sentMessage.embeds[0].fields[1].value = board.playersTurn;
-                        sentMessage.embeds[0].fields[2].value = 'Game Over';
+                        sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
