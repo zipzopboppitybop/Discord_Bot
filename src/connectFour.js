@@ -29,7 +29,7 @@ export default class ConnectFour {
     }
 
     dropPiece = (column) => {
-        if (this.player1) {
+        if (this.player1 === true) {
 
             this.playersTurn = "Yellow's Turn";
             this.player1 = false;

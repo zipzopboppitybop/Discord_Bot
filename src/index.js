@@ -62,6 +62,7 @@ client.on('messageCreate', async (message) => {
             if (user.tag === "ZipZop#7061") return;
             switch (reaction.emoji.name) {
                 case '👍':
+                    if (user.globalName === player1Name) return;
                     if (player2Name !== '') return;
                     player2Name = user.globalName;
                     sentMessage.embeds[0].fields[2].value = `Click a number to drop a piece. Player 2 is ${player2Name}.`;
@@ -69,6 +70,8 @@ client.on('messageCreate', async (message) => {
                     break;
                 case '1️⃣':
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
+                    if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
+                    if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
                     board.dropPiece(0);
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
                     sentMessage.embeds[0].fields[1].value = board.playersTurn;
@@ -76,6 +79,8 @@ client.on('messageCreate', async (message) => {
                     break;
                 case '2️⃣':
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
+                    if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
+                    if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
                     board.dropPiece(1);
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
                     sentMessage.embeds[0].fields[1].value = board.playersTurn;
@@ -83,6 +88,8 @@ client.on('messageCreate', async (message) => {
                     break;
                 case '3️⃣':
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
+                    if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
+                    if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
                     board.dropPiece(2);
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
                     sentMessage.embeds[0].fields[1].value = board.playersTurn;
@@ -90,6 +97,8 @@ client.on('messageCreate', async (message) => {
                     break;
                 case '4️⃣':
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
+                    if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
+                    if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
                     board.dropPiece(3);
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
                     sentMessage.embeds[0].fields[1].value = board.playersTurn;
@@ -97,6 +106,8 @@ client.on('messageCreate', async (message) => {
                     break;
                 case '5️⃣':
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
+                    if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
+                    if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
                     board.dropPiece(4);
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
                     sentMessage.embeds[0].fields[1].value = board.playersTurn;
@@ -104,6 +115,8 @@ client.on('messageCreate', async (message) => {
                     break;
                 case '6️⃣':
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
+                    if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
+                    if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
                     board.dropPiece(5);
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
                     sentMessage.embeds[0].fields[1].value = board.playersTurn;
@@ -111,6 +124,8 @@ client.on('messageCreate', async (message) => {
                     break;
                 case '7️⃣':
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
+                    if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
+                    if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
                     board.dropPiece(6);
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
                     sentMessage.embeds[0].fields[1].value = board.playersTurn;
@@ -123,6 +138,8 @@ client.on('messageCreate', async (message) => {
             switch (reaction.emoji.name) {
                 case '1️⃣':
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
+                    if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
+                    if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
                     board.dropPiece(0);
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
                     sentMessage.embeds[0].fields[1].value = board.playersTurn;
@@ -130,6 +147,8 @@ client.on('messageCreate', async (message) => {
                     break;
                 case '2️⃣':
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
+                    if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
+                    if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
                     board.dropPiece(1);
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
                     sentMessage.embeds[0].fields[1].value = board.playersTurn;
@@ -137,6 +156,8 @@ client.on('messageCreate', async (message) => {
                     break;
                 case '3️⃣':
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
+                    if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
+                    if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
                     board.dropPiece(2);
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
                     sentMessage.embeds[0].fields[1].value = board.playersTurn;
@@ -144,6 +165,8 @@ client.on('messageCreate', async (message) => {
                     break;
                 case '4️⃣':
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
+                    if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
+                    if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
                     board.dropPiece(3);
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
                     sentMessage.embeds[0].fields[1].value = board.playersTurn;
@@ -151,6 +174,8 @@ client.on('messageCreate', async (message) => {
                     break;
                 case '5️⃣':
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
+                    if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
+                    if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
                     board.dropPiece(4);
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
                     sentMessage.embeds[0].fields[1].value = board.playersTurn;
@@ -158,6 +183,8 @@ client.on('messageCreate', async (message) => {
                     break;
                 case '6️⃣':
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
+                    if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
+                    if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
                     board.dropPiece(5);
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
                     sentMessage.embeds[0].fields[1].value = board.playersTurn;
@@ -165,6 +192,8 @@ client.on('messageCreate', async (message) => {
                     break;
                 case '7️⃣':
                     if (user.globalName !== player1Name && user.globalName !== player2Name) return;
+                    if (board.playersTurn === "Red's Turn" && user.globalName !== player1Name) return;
+                    if (board.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return;
                     board.dropPiece(6);
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
                     sentMessage.embeds[0].fields[1].value = board.playersTurn;
