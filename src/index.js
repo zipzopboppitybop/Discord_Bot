@@ -27,6 +27,7 @@ client.on('interactionCreate', async (interaction) => {
 
     // Connect Four Command and logic
     if (interaction.commandName === 'playc4') {
+        interaction.reply('Starting Connect 4 Game...');
         const board = new ConnectFour();
         board.createBoard();
         const embed = new EmbedBuilder()
