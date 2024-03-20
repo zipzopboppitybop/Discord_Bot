@@ -22,15 +22,10 @@ client.on('ready', (c) => {
     console.log(`Logged in as ${c.user.tag}!`);
 });
 
-client.on('messageCreate', async (message) => {
-    if (message.author.bot) return;
+client.on('interactionCreate', async (interaction) => {
+    if (!interaction.isChatInputCommand()) return;
 
-    if (message.content === 'ping') {
-        message.reply('pong');
-    }
-
-    // Connect 4 game
-    if (message.content === '!play c4') {  
+    if (interaction.commandName === 'playc4') {
         const board = new ConnectFour();
         board.createBoard();
         const embed = new EmbedBuilder()
@@ -40,7 +35,7 @@ client.on('messageCreate', async (message) => {
             .addFields({name: 'Description', value: 'React with 👍 to become player 2.'})
             .toJSON();
 
-        let sentMessage = await message.channel.send({embeds: [embed]})
+        let sentMessage = await interaction.channel.send({embeds: [embed]})
         sentMessage.react('1️⃣');
         sentMessage.react('2️⃣');
         sentMessage.react('3️⃣');
@@ -50,17 +45,16 @@ client.on('messageCreate', async (message) => {
         sentMessage.react('7️⃣');
         sentMessage.react('👍');
 
-        let player1Name = message.author.globalName;
+        let player1Name = interaction.user.globalName;
         let player2Name = '';
 
         const filter = (reaction, user) => {
-            return reaction.emoji.name === '👍' && user.id === message.author.id;
+            return reaction.emoji.name === '👍' && user.id === interaction.user.id;
         };
         const collector = sentMessage.createReactionCollector(filter, { time: 15000 });
         collector.on('collect', async (reaction, user) => {
             if (user.tag === "ZipZop#7061") return;
 
-            
             switch (reaction.emoji.name) {
                 case '👍':
                     if (user.globalName === player1Name) return;
@@ -328,6 +322,19 @@ client.on('messageCreate', async (message) => {
                     break;
             }
         });
+    }
+});
+
+client.on('messageCreate', async (message) => {
+    if (message.author.bot) return;
+
+    if (message.content === 'ping') {
+       
+    }
+
+    // Connect 4 game logic
+    if (message.content === '!play c4') {  
+
     }
 });
 
