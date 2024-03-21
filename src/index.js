@@ -68,6 +68,8 @@ client.on('interactionCreate', async (interaction) => {
                     if (board.player2Name !== '') return;
                     board.player2Name = user.globalName;
                     sentMessage.embeds[0].fields[2].value = `Click a number to drop a piece. Player 2 is ${board.player2Name}.`;
+                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                    else sentMessage.embeds[0].fields[1].value = board.player2Name;
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '1️⃣':
