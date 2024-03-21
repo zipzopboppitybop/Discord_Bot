@@ -110,4 +110,12 @@ export default class ConnectFour {
 
         return false;
     }
+
+    checkPlayerTurn = (user, player1Name, player2Name) => {
+        if (user.globalName !== player1Name && user.globalName !== player2Name) return false;
+        if (this.playersTurn === "Red's Turn" && user.globalName !== player1Name) return false;
+        if (this.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return false;
+
+        return true;
+    }
 }

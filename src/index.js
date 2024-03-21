@@ -56,13 +56,7 @@ client.on('interactionCreate', async (interaction) => {
         let player1Name = interaction.user.globalName;
         let player2Name = '';
 
-        const checkPlayerTurn = (currentGame, user) => {
-            if (user.globalName !== player1Name && user.globalName !== player2Name) return false;
-            if (currentGame.playersTurn === "Red's Turn" && user.globalName !== player1Name) return false;
-            if (currentGame.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return false;
 
-            return true;
-        }
 
         const filter = (reaction, user) => {
             return reaction.emoji.name === '👍' && user.id === interaction.user.id;
@@ -80,7 +74,7 @@ client.on('interactionCreate', async (interaction) => {
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '1️⃣':
-                    if (!checkPlayerTurn(board, user)) return;
+                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(0);
                     if (board.gameOver) {
@@ -98,7 +92,7 @@ client.on('interactionCreate', async (interaction) => {
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '2️⃣':
-                    if (!checkPlayerTurn(board, user)) return;
+                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(1);
                     if (board.gameOver) {
@@ -116,7 +110,7 @@ client.on('interactionCreate', async (interaction) => {
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '3️⃣':
-                    if (!checkPlayerTurn(board, user)) return;
+                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(2);
                     if (board.gameOver) {
@@ -134,7 +128,7 @@ client.on('interactionCreate', async (interaction) => {
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '4️⃣':
-                    if (!checkPlayerTurn(board, user)) return;
+                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(3);
                     if (board.gameOver) {
@@ -152,7 +146,7 @@ client.on('interactionCreate', async (interaction) => {
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '5️⃣':
-                    if (!checkPlayerTurn(board, user)) return;
+                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(4);
                     if (board.gameOver) {
@@ -170,7 +164,7 @@ client.on('interactionCreate', async (interaction) => {
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '6️⃣':
-                    if (!checkPlayerTurn(board, user)) return;
+                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(5);
                     if (board.gameOver) {
@@ -188,7 +182,7 @@ client.on('interactionCreate', async (interaction) => {
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '7️⃣':
-                    if (!checkPlayerTurn(board, user)) return;
+                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(6);
                     if (board.gameOver) {
@@ -211,7 +205,7 @@ client.on('interactionCreate', async (interaction) => {
             if (user.tag === "ZipZop#7061") return;
             switch (reaction.emoji.name) {
                 case '1️⃣':
-                    if (!checkPlayerTurn(board, user)) return;
+                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(0);
                     if (board.gameOver) {
@@ -229,7 +223,7 @@ client.on('interactionCreate', async (interaction) => {
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '2️⃣':
-                    if (!checkPlayerTurn(board, user)) return;
+                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(1);
                     if (board.gameOver) {
@@ -247,7 +241,7 @@ client.on('interactionCreate', async (interaction) => {
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '3️⃣':
-                    if (!checkPlayerTurn(board, user)) return;
+                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(2);
                     if (board.gameOver) {
@@ -265,7 +259,7 @@ client.on('interactionCreate', async (interaction) => {
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '4️⃣':
-                    if (!checkPlayerTurn(board, user)) return;
+                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(3);
                     if (board.gameOver) {
@@ -283,7 +277,7 @@ client.on('interactionCreate', async (interaction) => {
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '5️⃣':
-                    if (!checkPlayerTurn(board, user)) return;
+                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(4);
                     if (board.gameOver) {
@@ -301,7 +295,7 @@ client.on('interactionCreate', async (interaction) => {
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '6️⃣':
-                    if (!checkPlayerTurn(board, user)) return;
+                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(5);
                     if (board.gameOver) {
@@ -319,7 +313,7 @@ client.on('interactionCreate', async (interaction) => {
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '7️⃣':
-                    if (!checkPlayerTurn(board, user)) return;
+                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(6);
                     if (board.gameOver) {
