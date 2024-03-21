@@ -53,10 +53,7 @@ client.on('interactionCreate', async (interaction) => {
         sentMessage.react('7️⃣');
         sentMessage.react('👍');
 
-        let player1Name = interaction.user.globalName;
-        let player2Name = '';
-
-
+        board.player1Name = interaction.user.globalName;
 
         const filter = (reaction, user) => {
             return reaction.emoji.name === '👍' && user.id === interaction.user.id;
@@ -67,136 +64,136 @@ client.on('interactionCreate', async (interaction) => {
 
             switch (reaction.emoji.name) {
                 case '👍':
-                    if (user.globalName === player1Name) return;
-                    if (player2Name !== '') return;
-                    player2Name = user.globalName;
-                    sentMessage.embeds[0].fields[2].value = `Click a number to drop a piece. Player 2 is ${player2Name}.`;
+                    if (user.globalName === board.player1Name) return;
+                    if (board.player2Name !== '') return;
+                    board.player2Name = user.globalName;
+                    sentMessage.embeds[0].fields[2].value = `Click a number to drop a piece. Player 2 is ${board.player2Name}.`;
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '1️⃣':
-                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
+                    if (!board.checkPlayerTurn(user)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(0);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                         sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
                     
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                    else sentMessage.embeds[0].fields[1].value = player2Name;
+                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                    else sentMessage.embeds[0].fields[1].value = board.player2Name;
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '2️⃣':
-                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
+                    if (!board.checkPlayerTurn(user)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(1);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                         sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
                     
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                    else sentMessage.embeds[0].fields[1].value = player2Name;
+                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                    else sentMessage.embeds[0].fields[1].value = board.player2Name;
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '3️⃣':
-                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
+                    if (!board.checkPlayerTurn(user)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(2);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                         sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
                     
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                    else sentMessage.embeds[0].fields[1].value = player2Name;
+                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                    else sentMessage.embeds[0].fields[1].value = board.player2Name;
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '4️⃣':
-                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
+                    if (!board.checkPlayerTurn(user)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(3);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                         sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
                     
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                    else sentMessage.embeds[0].fields[1].value = player2Name;
+                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                    else sentMessage.embeds[0].fields[1].value = board.player2Name;
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '5️⃣':
-                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
+                    if (!board.checkPlayerTurn(user)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(4);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                         sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
                     
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                    else sentMessage.embeds[0].fields[1].value = player2Name;
+                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                    else sentMessage.embeds[0].fields[1].value = board.player2Name;
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '6️⃣':
-                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
+                    if (!board.checkPlayerTurn(user)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(5);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                         sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
                     
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                    else sentMessage.embeds[0].fields[1].value = player2Name;
+                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                    else sentMessage.embeds[0].fields[1].value = board.player2Name;
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '7️⃣':
-                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
+                    if (!board.checkPlayerTurn(user)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(6);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                         sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
                     
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                    else sentMessage.embeds[0].fields[1].value = player2Name;
+                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                    else sentMessage.embeds[0].fields[1].value = board.player2Name;
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
             }
@@ -205,129 +202,129 @@ client.on('interactionCreate', async (interaction) => {
             if (user.tag === "ZipZop#7061") return;
             switch (reaction.emoji.name) {
                 case '1️⃣':
-                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
+                    if (!board.checkPlayerTurn(user)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(0);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                         sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
                     
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '2️⃣':
-                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
+                    if (!board.checkPlayerTurn(user)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(1);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                         sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
                     
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                    else sentMessage.embeds[0].fields[1].value = player2Name;
+                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                    else sentMessage.embeds[0].fields[1].value = board.player2Name;
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '3️⃣':
-                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
+                    if (!board.checkPlayerTurn(user)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(2);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                         sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
                     
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                    else sentMessage.embeds[0].fields[1].value = player2Name;
+                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                    else sentMessage.embeds[0].fields[1].value = board.player2Name;
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '4️⃣':
-                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
+                    if (!board.checkPlayerTurn(user)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(3);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                         sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
                     
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '5️⃣':
-                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
+                    if (!board.checkPlayerTurn(user)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(4);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                         sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
                     
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                    else sentMessage.embeds[0].fields[1].value = player2Name;
+                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                    else sentMessage.embeds[0].fields[1].value = board.player2Name;
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '6️⃣':
-                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
+                    if (!board.checkPlayerTurn(user)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(5);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                         sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
                     
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
                 case '7️⃣':
-                    if (!board.checkPlayerTurn(user, player1Name, player2Name)) return;
+                    if (!board.checkPlayerTurn(user)) return;
                     if (board.gameOver) return;
                     else board.dropPiece(6);
                     if (board.gameOver) {
                         sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                        else sentMessage.embeds[0].fields[1].value = player2Name;
+                        if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                        else sentMessage.embeds[0].fields[1].value = board.player2Name;
                         sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
                         await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                         return;
                     }
                     
                     sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = player1Name;
-                    else sentMessage.embeds[0].fields[1].value = player2Name;
+                    if (board.playersTurn === "Red's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                    else sentMessage.embeds[0].fields[1].value = board.player2Name;
                     await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                     break;
             }

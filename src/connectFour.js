@@ -1,10 +1,12 @@
 export default class ConnectFour {
-    constructor(board = [], player1 = true, printedBoard = '', playersTurn = "Red's Turn", gameOver = false) {
+    constructor(board = [], player1 = true, printedBoard = '', playersTurn = "Red's Turn", gameOver = false, player1Name = '', player2Name = '') {
         this.board = board;
         this.player1 = player1;
         this.printedBoard = printedBoard;
         this.playersTurn = playersTurn;
         this.gameOver = gameOver;
+        this.player1Name = player1Name;
+        this.player2Name = player2Name;
     }
 
     createBoard = () => {
@@ -111,10 +113,10 @@ export default class ConnectFour {
         return false;
     }
 
-    checkPlayerTurn = (user, player1Name, player2Name) => {
-        if (user.globalName !== player1Name && user.globalName !== player2Name) return false;
-        if (this.playersTurn === "Red's Turn" && user.globalName !== player1Name) return false;
-        if (this.playersTurn === "Yellow's Turn" && user.globalName !== player2Name) return false;
+    checkPlayerTurn = (user) => {
+        if (user.globalName !== this.player1Name && user.globalName !== this.player2Name) return false;
+        if (this.playersTurn === "Red's Turn" && user.globalName !== this.player1Name) return false;
+        if (this.playersTurn === "Yellow's Turn" && user.globalName !== this.player2Name) return false;
 
         return true;
     }
