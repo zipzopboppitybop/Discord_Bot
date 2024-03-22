@@ -36,7 +36,7 @@ const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('
 for (const file of commandFiles) {
     const filePath = path.join(commandsPath, file);
     const command = await import(filePath);
-    console.log(command.default.execute)
+
     client.commands.set(command.default.data.name, command);
     commands.push(command.default.data.toJSON());
 }
