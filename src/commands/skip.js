@@ -4,8 +4,8 @@ import { Player} from "discord-player";
 
 export default {
     data: new SlashCommandBuilder()
-        .setName('pause')
-        .setDescription('Pause the current song'),
+        .setName('skip')
+        .setDescription('Skip the current song'),
     execute: async ({client, interaction}) => {
         const player = client.manager.players.get(interaction.guild.id);
         if (!player) {
@@ -14,10 +14,8 @@ export default {
         if (!player.queue.current) {
             return interaction.reply({ content: 'There is no music playing', ephemeral: true });
         }
-        if (player.queue.current.paused) {
-            return interaction.reply({ content: 'The music is already paused', ephemeral: true });
-        }
-        player.pause(true);
-        interaction.reply({ content: `Paused ${player.queue.current.title}`, ephemeral: true });
+
+        player.stop();
+        interaction.reply({ content: `Skipped ${player.queue.current.title}`, ephemeral: true });
     }
 }

@@ -18,6 +18,6 @@ export default {
             return interaction.reply({ content: 'The music is already playing', ephemeral: true });
         }
         player.pause(false);
-        interaction.reply({ content: 'Unpaused the music', ephemeral: true });
+        interaction.reply({ content: `Unpaused ${player.queue.current.title}`, ephemeral: true });
     }
 }

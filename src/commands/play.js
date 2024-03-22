@@ -73,10 +73,12 @@ export default {
             player.queue.add(song);
             embed
             .setDescription(`Added [${song.title}](${song.uri}) to the queue!`)
+            .setThumbnail(song.thumbnail)
             .setFooter({text: `Duration: ${mins}:${secs}`})
             .toJSON()
-            
+
             if (!player.playing) player.play();
+            
             interaction.reply({embeds: [embed]});
         } else if (interaction.options._subcommand === "search") {
             let query = interaction.options._hoistedOptions[0].value;
@@ -95,8 +97,11 @@ export default {
             player.queue.add(song);
             embed
             .setDescription(`Added [${song.title}](${song.uri}) to the queue!`)
+            .setThumbnail(song.thumbnail)
             .setFooter({text: `Duration: ${mins}:${secs}`})
             .toJSON()
+
+            console.log(player.queue)
             
             if (!player.playing) player.play();
             interaction.reply({embeds: [embed]});
