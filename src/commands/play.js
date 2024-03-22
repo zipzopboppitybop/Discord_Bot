@@ -19,16 +19,6 @@ export default {
                     ))
         .addSubcommand((subcommand) =>
             subcommand
-            .setName('playlist')
-            .setDescription('Play a playlist from Youtube!')
-            .addStringOption((option) =>
-                option
-                .setName('url')
-                .setDescription('playlist url')
-                .setRequired(true),
-                    ))
-        .addSubcommand((subcommand) =>
-            subcommand
             .setName('song')
             .setDescription('Play a song from youtube!')
             .addStringOption((option) =>
@@ -78,7 +68,6 @@ export default {
             player.connect();
 
             const song = result.tracks[0];
-            console.log(song)
             const mins = Math.floor(song.duration / 60000);
             const secs = ((song.duration % 60000) / 1000).toFixed(0);
             player.queue.add(song);
@@ -89,44 +78,28 @@ export default {
             
             if (!player.playing) player.play();
             interaction.reply({embeds: [embed]});
-        } else if (interaction.options.subcommand === "playlist") {
-            let url = interaction.options.getString("url");
+        } else if (interaction.options._subcommand === "search") {
+            let query = interaction.options._hoistedOptions[0].value;
 
-            const result = await client.player.search(url, {
-                requestedBy: interaction.user,
-                searchEngine: QueryType.YOUTUBE_PLAYLIST,
-            });
-
-            if (!result.tracks.length) {
-                return await interaction.reply({ content: 'No playlist found!', ephemeral: true });
-            }
-
-            const playlist = result.playlist;   
-            await queue.addTracks(playlist);
-
-            embed
-            .setDescription(`Added [${playlist.title}](${playlist.url}) to the queue!`)
-            .setThumbnail(playlist.thumbnail)
-            .setFooter({text: `Duration: ${playlist.duration}`})
-        } else if (interaction.options.subcommand === "search") {
-            let query = interaction.options.getString("query");
-
-            const result = await client.player.search(query, {
-                requestedBy: interaction.user,
-                searchEngine: QueryType.AUTO,
-            });
+            const result = await client.manager.search(query);
 
             if (!result.tracks.length) {
                 return await interaction.reply({ content: 'No results found!', ephemeral: true });
             }
 
-            const song = result.track[0];   
-            await queue.addTrack(song);
+            player.connect();
 
+            const song = result.tracks[0];
+            const mins = Math.floor(song.duration / 60000);
+            const secs = ((song.duration % 60000) / 1000).toFixed(0);
+            player.queue.add(song);
             embed
-            .setDescription(`Added [${song.title}](${song.url}) to the queue!`)
-            .setThumbnail(song.thumbnail)
-            .setFooter({text: `Duration: ${song.duration}`})
+            .setDescription(`Added [${song.title}](${song.uri}) to the queue!`)
+            .setFooter({text: `Duration: ${mins}:${secs}`})
+            .toJSON()
+            
+            if (!player.playing) player.play();
+            interaction.reply({embeds: [embed]});
         } else if (interaction.options._subcommand === "game") {
             if (interaction.options._hoistedOptions[0].value === "connect4") {
                 interaction.reply('Starting Connect 4 Game...');
