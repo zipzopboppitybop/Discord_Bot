@@ -78,7 +78,7 @@ export default {
             .toJSON()
 
             if (!player.playing) player.play();
-            
+
             interaction.reply({embeds: [embed]});
         } else if (interaction.options._subcommand === "search") {
             let query = interaction.options._hoistedOptions[0].value;
@@ -101,7 +101,6 @@ export default {
             .setFooter({text: `Duration: ${mins}:${secs}`})
             .toJSON()
 
-            console.log(player.queue)
             
             if (!player.playing) player.play();
             interaction.reply({embeds: [embed]});
