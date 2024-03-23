@@ -130,8 +130,6 @@ export default {
                 player.queue.add(track);
             }
 
-            console.log(playlist.thumbnail)
-
             const mins = Math.floor(playlist.duration / 60000);
             const secs = ((playlist.duration % 60000) / 1000).toFixed(0);
             embed

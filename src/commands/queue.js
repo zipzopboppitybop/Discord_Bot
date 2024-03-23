@@ -5,7 +5,13 @@ import { Player} from "discord-player";
 export default {
     data: new SlashCommandBuilder()
         .setName('queue')
-        .setDescription('Check the current queue'),
+        .setDescription('Check the current queue')
+        .addStringOption((option) =>
+            option
+            .setName('page')
+            .setDescription('queue page number')
+            .setRequired(false),
+            ),
     execute: async ({client, interaction}) => {
         const player = client.manager.players.get(interaction.guild.id);
         if (!player) {
@@ -20,9 +26,9 @@ export default {
     
         // change for the amount of tracks per page
         const multiple = 10;
-        const page = 1;
-        
-        const end = 1 * multiple;
+        const page = interaction.options.getString('page') ? parseInt(interaction.options.getString('page')) : 1;
+
+        const end = page * multiple;
         const start = end - multiple;
     
         const tracks = queue.slice(start, end);
