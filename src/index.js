@@ -64,8 +64,8 @@ client.on('ready', (c) => {
 
 const nodes = [
     {
-      host: "lava-v3.ajieblogs.eu.org",
-      password: "https://dsc.gg/ajidevserver",
+      host: "lavalink.devamop.in",
+      password: "DevamOP",
       port: 443,
       secure: true
     }

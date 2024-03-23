@@ -29,6 +29,16 @@ export default {
                     ))
         .addSubcommand((subcommand) =>
             subcommand
+            .setName('playlist')
+            .setDescription('Play a playlist from youtube!')
+            .addStringOption((option) =>
+                option
+                .setName('url')
+                .setDescription('playlist url')
+                .setRequired(true),
+                    ))
+        .addSubcommand((subcommand) =>
+            subcommand
             .setName('game')
             .setDescription('Play one of our games!')
             .addStringOption((option) =>
@@ -98,6 +108,34 @@ export default {
             embed
             .setDescription(`Added [${song.title}](${song.uri}) to the queue!`)
             .setThumbnail(song.thumbnail)
+            .setFooter({text: `Duration: ${mins}:${secs}`})
+            .toJSON()
+
+            
+            if (!player.playing) player.play();
+            interaction.reply({embeds: [embed]});
+        } else if (interaction.options._subcommand === "playlist") {
+            let query = interaction.options._hoistedOptions[0].value;
+
+            const result = await client.manager.search(query);
+
+            if (!result.tracks.length) {
+                return await interaction.reply({ content: 'No results found!', ephemeral: true });
+            }
+
+            player.connect();
+
+            const playlist = result.playlist;
+            for (const track of result.tracks) {
+                player.queue.add(track);
+            }
+
+            console.log(playlist.thumbnail)
+
+            const mins = Math.floor(playlist.duration / 60000);
+            const secs = ((playlist.duration % 60000) / 1000).toFixed(0);
+            embed
+            .setDescription(`Added [${playlist.name}] playlist to the queue!`)
             .setFooter({text: `Duration: ${mins}:${secs}`})
             .toJSON()
 
