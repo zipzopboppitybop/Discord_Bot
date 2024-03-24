@@ -1,6 +1,5 @@
 <div style="text-align:center"><img alt="Bot Icon" src="./src/images/pools_closed_chibi.png" /></div>
 <h1 style="text-align:center">ZipZop Discord.js v14 Bot</h1>
-<hr>
 <h3 style="text-align:center">This is ZipZop, a bot that can play music and games. Adding more games and features soon.</h3>
 
 <div style="font-size:1.5rem">
@@ -29,7 +28,6 @@ nodemon
 ```
 
 <h1 style="text-align:center">Features</h1>
-<hr>
 
 ## Play Games
 - You can play games by doing the /play game command! Example /play game connect4.
@@ -46,7 +44,6 @@ nodemon
 
 
 <h1 style="text-align:center">Contributing</h1>
-<hr>
 
 - If you don't want to contribute or customize the bot you can just use the invite link at the top and it should work fine.
 - You are free to clone this repository and do what you want with it if you wish.
