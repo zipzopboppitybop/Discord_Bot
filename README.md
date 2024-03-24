@@ -1,7 +1,7 @@
-<div style="text-align:center"><img alt="Bot Icon" src="./src/images/pools_closed_chibi.png" /></div>
-<h1 style="text-align:center">ZipZop Discord.js v14 Bot</h1>
+<center ><img alt="Bot Icon" src="./src/images/pools_closed_chibi.png" /></center>
+<center style="font-size:2rem">ZipZop Discord.js v14 Bot</center>
 <hr>
-<h3 style="text-align:center">This is ZipZop, a bot that can play music and games. Adding more games and features soon.</h3>
+<center style="font-size:1.2rem">This is ZipZop, a bot that can play music and games. Adding more games and features soon.</center>
 
 <div style="font-size:1.5rem">
 
@@ -28,7 +28,7 @@ cd src
 nodemon
 ```
 
-<h1 style="text-align:center">Features</h1>
+<center style="font-size:2rem">Features</center>
 <hr>
 
 ## Play Games
@@ -45,7 +45,7 @@ nodemon
 - /queue to see current song and what songs are left on the queue.
 
 
-<h1 style="text-align:center">Contributing</h1>
+<center style="font-size:2rem">Contributing</center>
 <hr>
 
 - If you don't want to contribute or customize the bot you can just use the invite link at the top and it should work fine.
@@ -53,4 +53,4 @@ nodemon
 - Or if you want to contribute to this bot you can [Fork](https://github.com/zipzopboppitybop/Discord_Bot/fork) this repository, create a feature branch, and make a pull request.
 
 
-<h1 style="text-align:center">Thank you so much for checking my bot out and or contributing!</h1>
+<center style="font-size:2rem">Thank you so much for checking my bot out and or contributing!</center>
