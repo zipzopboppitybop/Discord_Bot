@@ -25,7 +25,6 @@ npm i
 4. Then run following commands
 ```
 cd src
-node register-commands.js
 nodemon
 ```
 
@@ -33,18 +32,24 @@ nodemon
 <hr>
 
 ## Play Games
-- You can play games by doint /play and the name of the game (example /playc4, /playtetris etc...)
-- Can only play connect 4 at the moment. Adding new features soon
+- You can play games by doing the /play game command! Example /play game connect4.
+- Can only play connect 4 at the moment. Adding new games soon/
 
 ## Play Music
--- Am Adding music play function soon
+- /play song to enter a url for a youtube video and play it from bot.
+- /play search to enter a query and search for a youtube video.
+- /play playlist to enter a playlist of videos and load them all into queue at same time.
+- /stop to delete queue and stop bot.
+- /pause to pause music.
+- /resume to resume paused music.
+- /queue to see current song and what songs are left on the queue.
 
 
 <h1 style="text-align:center">Contributing</h1>
 <hr>
 
-- If you don't want to add to the bot you can just use the invite link at the top and it should work fine
-- You are free to clone this repository and do what you want with it if you wish
+- If you don't want to contribute or customize the bot you can just use the invite link at the top and it should work fine.
+- You are free to clone this repository and do what you want with it if you wish.
 - Or if you want to contribute to this bot you can [Fork](https://github.com/zipzopboppitybop/Discord_Bot/fork) this repository, create a feature branch, and make a pull request.
 
 
