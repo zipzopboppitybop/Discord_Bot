@@ -49,25 +49,25 @@ export default {
                     ))
     ,
     execute: async ({client, interaction}) => {
-        if (!interaction.member.voice.channel) {
-            return await interaction.reply({ content: 'You need to be in a voice channel to play music!', ephemeral: true });
-        }
-
-        let player = client.manager.players.get(interaction.guild.id);
-
-        if (!player) {
-            player = client.manager.create({
-                guild: interaction.guild.id,
-                voiceChannel: interaction.member.voice.channel.id,
-                textChannel: interaction.channel.id,
-                volume: 100,
-                selfDeafen: true,
-            });
-        }
-
         let embed = new EmbedBuilder();
         if (interaction.options._subcommand === "song")
         {
+            if (!interaction.member.voice.channel) {
+                return await interaction.reply({ content: 'You need to be in a voice channel to play music!', ephemeral: true });
+            }
+    
+            let player = client.manager.players.get(interaction.guild.id);
+    
+            if (!player) {
+                player = client.manager.create({
+                    guild: interaction.guild.id,
+                    voiceChannel: interaction.member.voice.channel.id,
+                    textChannel: interaction.channel.id,
+                    volume: 100,
+                    selfDeafen: true,
+                });
+            }
+    
             let url = interaction.options._hoistedOptions[0].value;
             const result = await client.manager.search(url);
 
@@ -91,6 +91,22 @@ export default {
 
             interaction.reply({embeds: [embed]});
         } else if (interaction.options._subcommand === "search") {
+            if (!interaction.member.voice.channel) {
+                return await interaction.reply({ content: 'You need to be in a voice channel to play music!', ephemeral: true });
+            }
+    
+            let player = client.manager.players.get(interaction.guild.id);
+    
+            if (!player) {
+                player = client.manager.create({
+                    guild: interaction.guild.id,
+                    voiceChannel: interaction.member.voice.channel.id,
+                    textChannel: interaction.channel.id,
+                    volume: 100,
+                    selfDeafen: true,
+                });
+            }
+    
             let query = interaction.options._hoistedOptions[0].value;
 
             const result = await client.manager.search(query);
@@ -115,6 +131,22 @@ export default {
             if (!player.playing) player.play();
             interaction.reply({embeds: [embed]});
         } else if (interaction.options._subcommand === "playlist") {
+            if (!interaction.member.voice.channel) {
+                return await interaction.reply({ content: 'You need to be in a voice channel to play music!', ephemeral: true });
+            }
+    
+            let player = client.manager.players.get(interaction.guild.id);
+    
+            if (!player) {
+                player = client.manager.create({
+                    guild: interaction.guild.id,
+                    voiceChannel: interaction.member.voice.channel.id,
+                    textChannel: interaction.channel.id,
+                    volume: 100,
+                    selfDeafen: true,
+                });
+            }
+    
             let query = interaction.options._hoistedOptions[0].value;
 
             const result = await client.manager.search(query);
