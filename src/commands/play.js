@@ -175,7 +175,62 @@ export default {
         } else if (interaction.options._subcommand === "game") {
             if (interaction.options._hoistedOptions[0].value === "tictactoe") {
                 interaction.reply('Starting Tic Tac Toe Game...');
+                const board = new TicTacToe();
+                board.createBoard();
+                const embed = new EmbedBuilder()
+                    .setTitle('Tic Tac Toe')
+                    .addFields({name: 'Board', value: board.printBoard()})
+                    .addFields({name: 'Turn', value: interaction.user.globalName})
+                    .addFields({name: 'Description', value: 'React with 👍 to become player 2.'})
+                    .toJSON();
+                let sentMessage = await interaction.channel.send({embeds: [embed]})
+                sentMessage.react('1️⃣');
+                sentMessage.react('2️⃣');
+                sentMessage.react('3️⃣');
+                sentMessage.react('4️⃣');
+                sentMessage.react('5️⃣');
+                sentMessage.react('6️⃣');
+                sentMessage.react('7️⃣');
+                sentMessage.react('8️⃣');
+                sentMessage.react('👍');
 
+                board.player1Name = interaction.user.globalName;
+
+                const filter = (reaction, user) => {
+                    return reaction.emoji.name === '👍' && user.id === interaction.user.id;
+                };
+                const collector = sentMessage.createReactionCollector(filter, { time: 15000 });
+                collector.on('collect', async (reaction, user) => {
+                    if (user.tag === "ZipZop#7061") return;
+
+                    switch (reaction.emoji.name) {
+                        case '👍':
+                            if (user.globalName === board.player1Name) return;
+                            if (board.player2Name !== '') return;
+                            board.player2Name = user.globalName;
+                            sentMessage.embeds[0].fields[2].value = `Click a number to place your piece. Player 2 is ${board.player2Name}.`;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '1️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver) return;
+                            else board.pickSpace(1);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+                            
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                    }
+                });
             }
             if (interaction.options._hoistedOptions[0].value === "connect4") {
                 interaction.reply('Starting Connect 4 Game...');

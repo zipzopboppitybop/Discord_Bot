@@ -42,6 +42,10 @@ nodemon
 - /resume to resume paused music.
 - /queue to see current song and what songs are left on the queue.
 
+## Upcoming Features
+- New games like tictactoe, trivia, and other games
+- Admin commands to manage server like ban, mute, kick, etc...
+
 
 <h1 style="text-align:center">Contributing</h1>
 
