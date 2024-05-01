@@ -2,6 +2,7 @@ import { SlashCommandBuilder, SlashCommandSubcommandBuilder } from "discord.js";
 import {EmbedBuilder} from "discord.js"
 import { Player} from "discord-player";
 import ConnectFour from "../games/connectFour.js";
+import TicTacToe from "../games/tictactoe.js";
 
 export default {
     data: new SlashCommandBuilder()

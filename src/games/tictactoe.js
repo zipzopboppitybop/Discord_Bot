@@ -14,7 +14,7 @@ export default class TicTacToe {
         for (let i = 0; i < 3; i++) {
             this.board.push([]);
             for (let j = 0; j < 3; j++) {
-                this.board[i].push(':black_circle:');
+                this.board[i].push(':black_large_square: ');
             }
         }
     }
@@ -38,7 +38,9 @@ export default class TicTacToe {
             this.player1 = false;
             
             if (space === 1) {
-                this.board[0][0] = ':x:';
+                if (this.board[0][0] === ':black_large_square: ') {
+                    this.board[0][0] = ':x:';
+                }
             }
 
         } else {
