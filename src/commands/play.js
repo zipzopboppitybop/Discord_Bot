@@ -216,7 +216,165 @@ export default {
                             break;
                         case '1️⃣':
                             if (!board.checkPlayerTurn(user)) return;
-                            if (board.gameOver) return;
+                            if (board.gameOver || board.board[0][0] !== ":black_large_square:") return;
+                            else board.pickSpace(1);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '2️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[0][1] !== ":black_large_square:") return;
+                            else board.pickSpace(2);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '3️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[0][2] !== ":black_large_square:") return;
+                            else board.pickSpace(3);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '4️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[1][0] !== ":black_large_square:") return;
+                            else board.pickSpace(4);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '5️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[1][1] !== ":black_large_square:") return;
+                            else board.pickSpace(5);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '6️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[1][2] !== ":black_large_square:") return;
+                            else board.pickSpace(6);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '7️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[2][0] !== ":black_large_square:") return;
+                            else board.pickSpace(7);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '8️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[2][1] !== ":black_large_square:") return;
+                            else board.pickSpace(8);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '9️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[2][2] !== ":black_large_square:") return;
+                            else board.pickSpace(9);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                    }
+                });
+                client.on('messageReactionRemove', async (reaction, user) => {
+                    if (user.tag === "ZipZop#7061") return;
+                   switch (reaction.emoji.name) {
+                        case '👍':
+                            if (user.globalName === board.player1Name) return;
+                            if (board.player2Name !== '') return;
+                            board.player2Name = user.globalName;
+                            sentMessage.embeds[0].fields[2].value = `Click a number to place your piece. Player 2 is ${board.player2Name}.`;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '1️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[0][0] !== ":black_large_square:") return;
                             else board.pickSpace(1);
                             if (board.gameOver) {
                                 sentMessage.embeds[0].fields[0].value = board.printedBoard;
@@ -226,6 +384,134 @@ export default {
                                 return;
                             }
                             
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '2️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[0][1] !== ":black_large_square:") return;
+                            else board.pickSpace(2);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '3️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[0][2] !== ":black_large_square:") return;
+                            else board.pickSpace(3);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '4️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[1][0] !== ":black_large_square:") return;
+                            else board.pickSpace(4);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '5️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[1][1] !== ":black_large_square:") return;
+                            else board.pickSpace(5);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '6️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[1][2] !== ":black_large_square:") return;
+                            else board.pickSpace(6);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '7️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[2][0] !== ":black_large_square:") return;
+                            else board.pickSpace(7);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '8️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[2][1] !== ":black_large_square:") return;
+                            else board.pickSpace(8);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
+                            sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                            break;
+                        case '9️⃣':
+                            if (!board.checkPlayerTurn(user)) return;
+                            if (board.gameOver || board.board[2][2] !== ":black_large_square:") return;
+                            else board.pickSpace(9);
+                            if (board.gameOver) {
+                                sentMessage.embeds[0].fields[0].value = board.printedBoard;
+                                sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                                sentMessage.embeds[0].fields[2].value = `Game Over - ${user.globalName} Wins!`;
+                                await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
+                                return;
+                            }
+
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
                             sentMessage.embeds[0].fields[1].value = board.playersTurn;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
