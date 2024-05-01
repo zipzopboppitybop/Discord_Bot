@@ -193,6 +193,7 @@ export default {
                 sentMessage.react('6️⃣');
                 sentMessage.react('7️⃣');
                 sentMessage.react('8️⃣');
+                sentMessage.react('9️⃣');
                 sentMessage.react('👍');
 
                 board.player1Name = interaction.user.globalName;
@@ -209,7 +210,7 @@ export default {
                             if (user.globalName === board.player1Name) return;
                             if (board.player2Name !== '') return;
                             board.player2Name = user.globalName;
-                            sentMessage.embeds[0].fields[2].value = `Click a number to place your piece. Player 2 is ${board.player2Name}.`;
+                            sentMessage.embeds[0].fields[2].value = `Click a number to claim a space. Player 2 is ${board.player2Name}.`;
                             if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
                             else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
@@ -227,7 +228,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                         case '2️⃣':
@@ -243,7 +245,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                         case '3️⃣':
@@ -259,7 +262,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                         case '4️⃣':
@@ -275,7 +279,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                         case '5️⃣':
@@ -291,7 +296,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                         case '6️⃣':
@@ -307,7 +313,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                         case '7️⃣':
@@ -323,7 +330,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                         case '8️⃣':
@@ -339,7 +347,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                         case '9️⃣':
@@ -355,7 +364,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                     }
@@ -385,7 +395,8 @@ export default {
                             }
                             
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                         case '2️⃣':
@@ -401,7 +412,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                         case '3️⃣':
@@ -417,7 +429,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                         case '4️⃣':
@@ -433,7 +446,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                         case '5️⃣':
@@ -449,7 +463,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                         case '6️⃣':
@@ -465,7 +480,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                         case '7️⃣':
@@ -481,7 +497,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                         case '8️⃣':
@@ -497,7 +514,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                         case '9️⃣':
@@ -513,7 +531,8 @@ export default {
                             }
 
                             sentMessage.embeds[0].fields[0].value = board.printedBoard;
-                            sentMessage.embeds[0].fields[1].value = board.playersTurn;
+                            if (board.playersTurn === "X's Turn") sentMessage.embeds[0].fields[1].value = board.player1Name;
+                            else sentMessage.embeds[0].fields[1].value = board.player2Name;
                             await sentMessage.edit({embeds: [sentMessage.embeds[0]]});
                             break;
                     }
