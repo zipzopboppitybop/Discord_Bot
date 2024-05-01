@@ -120,8 +120,30 @@ export default class TicTacToe {
 
 
         }
-        //this.checkWin();
+        this.checkWin();
         this.printBoard();
+    }
+
+    checkWin = () => {
+        for (let i = 0; i < 3; i++) {
+            if (this.board[i][0] !== ':black_large_square:' && this.board[i][0] === this.board[i][1] && this.board[i][0] === this.board[i][2]) {
+                this.gameOver = true;
+                return true;
+            }
+            if (this.board[0][i] !== ':black_large_square:' && this.board[0][i] === this.board[1][i] && this.board[0][i] === this.board[2][i]) {
+                this.gameOver = true;
+                return true;
+            }
+        }
+        if (this.board[0][0] !== ':black_large_square:' && this.board[0][0] === this.board[1][1] && this.board[0][0] === this.board[2][2]) {
+            this.gameOver = true;
+            return true;
+        }
+        if (this.board[0][2] !== ':black_large_square:' && this.board[0][2] === this.board[1][1] && this.board[0][2] === this.board[2][0]) {
+            this.gameOver = true;
+            return true;
+        }
+        return false;
     }
 
     
