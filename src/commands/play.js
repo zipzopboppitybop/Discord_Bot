@@ -1,7 +1,7 @@
 import { SlashCommandBuilder, SlashCommandSubcommandBuilder } from "discord.js";
 import {EmbedBuilder} from "discord.js"
 import { Player} from "discord-player";
-import ConnectFour from '../connectFour.js';
+import ConnectFour from "../games/connectFour.js";
 
 export default {
     data: new SlashCommandBuilder()
@@ -44,7 +44,7 @@ export default {
             .addStringOption((option) =>
                 option
                 .setName('name')
-                .setDescription('Which game do you want to play?')
+                .setDescription('Which game do you want to play? Example: tictactoe, connect4.')
                 .setRequired(true),
                     ))
     ,
@@ -173,6 +173,10 @@ export default {
             if (!player.playing) player.play();
             interaction.reply({embeds: [embed]});
         } else if (interaction.options._subcommand === "game") {
+            if (interaction.options._hoistedOptions[0].value === "tictactoe") {
+                interaction.reply('Starting Tic Tac Toe Game...');
+
+            }
             if (interaction.options._hoistedOptions[0].value === "connect4") {
                 interaction.reply('Starting Connect 4 Game...');
                 const board = new ConnectFour();
