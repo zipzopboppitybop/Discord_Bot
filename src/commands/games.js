@@ -12,7 +12,7 @@ export default {
     
 
     
-        embed.setDescription('connect4, hangman, tictactoe')
+        embed.setDescription('connect4, tictactoe')
     
         return interaction.reply({ embeds: [embed] });
     }

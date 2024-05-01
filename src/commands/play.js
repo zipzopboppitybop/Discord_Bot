@@ -174,7 +174,7 @@ export default {
             if (!player.playing) player.play();
             interaction.reply({embeds: [embed]});
         } else if (interaction.options._subcommand === "game") {
-            if (interaction.options._hoistedOptions[0].value === "tictactoe") {
+            if (interaction.options._hoistedOptions[0].value.toLowerCase() === "tictactoe") {
                 interaction.reply('Starting Tic Tac Toe Game...');
                 const board = new TicTacToe();
                 board.createBoard();
@@ -538,7 +538,7 @@ export default {
                     }
                 });
             }
-            if (interaction.options._hoistedOptions[0].value === "connect4") {
+            if (interaction.options._hoistedOptions[0].value.toLowerCase() === "connect4" || interaction.options._hoistedOptions[0].value.toLowerCase() === "connectfour") {
                 interaction.reply('Starting Connect 4 Game...');
                 const board = new ConnectFour();
                 board.createBoard();
